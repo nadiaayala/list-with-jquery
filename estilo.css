@@ -21,6 +21,13 @@ h1{
     width: 80%;   
     margin-bottom: 30px;    
 }
+#list{
+    width: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 #container input{
     width: 90%;
     height: 25px;
@@ -60,6 +67,7 @@ h1{
     width: 60px;
     height: 20px;
 }
-.done{
+.finished{
     color: red;
+    
 }

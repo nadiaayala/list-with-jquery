@@ -2,6 +2,7 @@
     $(function(){
         var $textEntered;
         var $container = $('#container');
+        var $list = $('#list');
         // var $inputUser = $(':input:first');
         var $button = $('#create');
         $(':input:first').on('keyup', function(){
@@ -16,7 +17,7 @@
             $newEl.append($textEntered);
             $newDiv.append($newEl);
             $newDiv.append($newBtn);
-            $container.append($newDiv);
+            $list.append($newDiv);
             console.log("kay");
             $('<div></div>').attr('class', 'newDiv').insertBefore("$button");
         });
@@ -24,4 +25,14 @@
         //     console.log('worked');
         //     $('$textEntered').addClass('done');
         // })
+        $($list).on('click', '.btnFinalizar', function(){
+            // These two first lines are only to check if the dynamical button was correct selected!!
+            console.log('you clicked me!');
+            console.log($(this).prev());
+            //This line gives functionality to the button when the user finishes its to do:
+            $(this).prev().addClass('finished');
+            var $itemText = $textEntered;
+            $(this).prev().append(' - Finished! ');
+
+        });
         });
