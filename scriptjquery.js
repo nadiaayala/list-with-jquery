@@ -2,9 +2,12 @@
     $(function(){
         var $textEntered;
         var $container = $('#container');
+        var $clock = $('.clock');
         var $list = $('#list');
-        // var $inputUser = $(':input:first');
         var $button = $('#create');
+        var date = new Date();
+        
+        $clock.prepend(date.toLocaleDateString());
         $(':input:first').on('keyup', function(){
             $textEntered= $(':input:first').val();
             console.log("okay");
