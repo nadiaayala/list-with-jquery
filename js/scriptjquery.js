@@ -23,6 +23,21 @@
              quantity=0;
             }
       });
+        $button.on('mouseover', function(){
+            $(this).animate(
+            {
+                // height: '+=5',
+                width: '+=10'
+            }, 200);
+        });
+        $button.on('mouseout', function(){
+            $(this).animate(
+            {
+                // height: '-=5',
+                width: '-=10'
+            },200);
+            });
+        
 
         $(':input:first').on('keyup', function(){
             $textEntered= $(':input:first').val();
@@ -49,10 +64,7 @@
                 $list.after($alertDiv);
             }
              });
-        // $(':button .btnFinalizar').on('click', function(){
-        //     console.log('worked');
-        //     $('$textEntered').addClass('done');
-        // })
+        
         $($list).on('click', '.btnFinalizar', function(){
             // These two first lines are only to check if the dynamical button was correct selected!!
             console.log('you clicked me!');

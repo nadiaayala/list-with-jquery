@@ -32,6 +32,9 @@ h1{
     flex-direction: row;
     width: 80%;
 }
+.spaceBetween{
+    justify-content: space-between; 
+}
 .newDiv{
     display: flex;
     flex-direction: column;
@@ -58,6 +61,9 @@ h1{
     color: red;
     
 }
+/* #inputTask{
+    width: 60%;
+} */
 #container{
     display: flex;
     flex-direction: column;
@@ -78,7 +84,7 @@ h1{
     max-height: 80vw;
 }
 #container input{
-    width: 90%;
+    width: 75%;
     height: 25px;
     border: solid rgb(50, 60, 197) 1px;    
     border-radius: 5px;
@@ -86,6 +92,7 @@ h1{
 }
 #create{
     width: 20%;
+    min-width: 20%;
     border-radius: 5px 5px;
 }
 #delete{
@@ -116,6 +123,9 @@ h1{
         align-items: center;   
         width: 80%;           
     }  
+    #container input{
+        width: 80%;
+    }
     #create{
         width: 11%;
     }
@@ -134,6 +144,9 @@ h1{
     }
     .novoElTarefa{
         width: 100%;
+    }
+    .clock{
+        font-size: 20pt;
     }
     
            
