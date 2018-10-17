@@ -10,6 +10,7 @@
         var $removable = $('#list');
         var $numberItens = $('.novoElTarefa');
         var quantity = 0;
+        var $alertDiv = $('#error');
         
         $clock.prepend(date.toLocaleDateString());
         $clock.hide().slideDown(1000);
@@ -21,7 +22,9 @@
             $divToDelete.slideUp();   
             $divToDelete.remove();
              quantity=0;
+             $alertDiv.remove();
             }
+            
       });
         $button.on('mouseover', function(){
             $(this).animate(
@@ -46,7 +49,7 @@
         $($button).on('click', function(){
             quantity++;            
             console.log(quantity);            
-            if(quantity<6){
+            if(quantity<6){                
                 var $newDiv = $('<div class="newDiv">');
                 var $newEl = $('<li class="novoElTarefa">');
                 var $newBtn = $('<button class="btnFinalizar">');
@@ -59,20 +62,17 @@
                 $('<div></div>').attr('class', 'newDiv').insertBefore("$button");
             }
             else{
-                var $alertDiv = $('<div class="inline error">');
-                $alertDiv.prepend('Please, remove one to-do<br>before inserting more!')
+                 $alertDiv.html('Please, remove one to-do<br>before inserting more!')
                 $list.after($alertDiv);
             }
              });
         
         $($list).on('click', '.btnFinalizar', function(){
-            // These two first lines are only to check if the dynamical button was correct selected!!
-            console.log('you clicked me!');
             console.log($(this).prev());
             //This line gives functionality to the button when the user finishes its to do:
             $(this).prev().addClass('finished');
             var $itemText = $textEntered;
-            $(this).prev().append(' - Finished! ');
+            $(this).prev().prepend('<em>');
 
         });
         });

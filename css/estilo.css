@@ -53,17 +53,14 @@ h1{
     border: solid rgb(50, 60, 197) 1px;
     color: white;
     font-weight: bold;
-    font-size: 16pt;
+    font-size: 13pt;
 }
-.error{
+#error{
     justify-content: center;
-    font-size:15pt;
-    color: red;
-    
+    font-size:20px;
+    color: red;  
+    width: 70%; 
 }
-/* #inputTask{
-    width: 60%;
-} */
 #container{
     display: flex;
     flex-direction: column;
@@ -76,7 +73,6 @@ h1{
     flex-direction: row;
     justify-content: space-around;
 }
-
 #list{
     width: inherit;
     display: flex;
@@ -139,6 +135,9 @@ h1{
         height: 8%;
         margin-top: 30px;
     }
+    #error{        
+        font-size:20px;           
+    }    
     .newDiv{
         width: 80%;
     }
