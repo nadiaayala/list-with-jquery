@@ -1,62 +1,59 @@
 
     $(function(){
         var $textEntered;
-        var $container = $('#container');
+        const $container = $('#container');
         var $clock = $('.clock');
         var $list = $('#list');
-        var $button = $('#create');
+        const $button = $('#create');
         var date = new Date();
         var $btnDelete = $('#delete');
-        var $removable = $('#list');
+        const $removable = $('#list');
         var $numberItens = $('.novoElTarefa');
         var quantity = 0;
-        var $alertDiv = $('#error');
-        
+        const $alertDiv = $('#error');
+        const $quantityTasks = $('#quantity');
+        var quantity = 0;
+        $quantityTasks.text('0');
         $clock.prepend(date.toLocaleDateString());
         $clock.hide().slideDown(1000);
         
-        $btnDelete.on('click', function(){
-            // var $divToDelete = $removable.find('div');
-            if(confirm('Are you sure you want to delete ALL?')){
-            var $divToDelete = $('#list .newDiv');
-            $divToDelete.slideUp();   
-            $divToDelete.remove();
-             quantity=0;
-             $alertDiv.remove();
-            }
-            
-      });
+        // Animations on CREATE button
         $button.on('mouseover', function(){
             $(this).animate(
             {
-                // height: '+=5',
                 width: '+=10'
             }, 200);
         });
+
         $button.on('mouseout', function(){
             $(this).animate(
             {
-                // height: '-=5',
                 width: '-=10'
             },200);
-            });
-        
+            });   
+        // End of animations section     
 
         $(':input:first').on('keyup', function(){
             $textEntered= $(':input:first').val();
         });
         
+        // This section creates new elements when the user clicks the create button
         $($button).on('click', function(){
-            quantity++;            
-            console.log(quantity);            
-            if(quantity<6){                
+            if(quantity<5){            
+                quantity++;
+                $quantityTasks.html('<em>' + quantity + '</em>');      
                 var $newDiv = $('<div class="newDiv">');
                 var $newEl = $('<li class="novoElTarefa">');
+                var $newDivBtns = $('<div class="taskBtns">');
                 var $newBtn = $('<button class="btnFinalizar">');
-                $newBtn.prepend('DONE');
-                $newEl.append($textEntered);
+                var $newBtnDelete = $('<button class="btnDeleteTask">');
+                $newBtn.text('DONE');
+                $newBtnDelete.text('DELETE');                
+                $newDivBtns.append($newBtn);
+                $newDivBtns.append($newBtnDelete);
+                $newEl.append($textEntered);                
                 $newDiv.append($newEl);
-                $newDiv.append($newBtn);
+                $newDiv.append($newDivBtns);
                 $list.append($newDiv);
                 $newDiv.hide().fadeIn();
                 $('<div></div>').attr('class', 'newDiv').insertBefore("$button");
@@ -68,11 +65,27 @@
              });
         
         $($list).on('click', '.btnFinalizar', function(){
-            console.log($(this).prev());
             //This line gives functionality to the button when the user finishes its to do:
-            $(this).prev().addClass('finished');
-            var $itemText = $textEntered;
-            $(this).prev().prepend('<em>');
-
+            $(this).parent().parent().addClass('finished');
         });
+
+        $($list).on('click', '.btnDeleteTask', function(){
+             $(this).parent().parent().remove();
+             quantity--;
+             $quantityTasks.html('<em>' + quantity + '</em>');
+             if($alertDiv){
+             $alertDiv.remove();
+             }
+        });
+
+        $btnDelete.on('click', function(){
+            if(confirm('Are you sure you want to delete ALL?')){
+            var $divToDelete = $('#list .newDiv');
+            $divToDelete.slideUp();   
+            $divToDelete.remove();
+             quantity=0;
+             $quantityTasks.html('<em>' + quantity + '</em>');      
+             $alertDiv.remove();
+            }            
+      });
         });
