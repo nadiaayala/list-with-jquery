@@ -45,8 +45,8 @@
                 var $newDiv = $('<div class="newDiv">');
                 var $newEl = $('<li class="novoElTarefa">');
                 var $newDivBtns = $('<div class="taskBtns">');
-                var $newBtn = $('<button class="btnFinalizar">');
-                var $newBtnDelete = $('<button class="btnDeleteTask">');
+                var $newBtn = $('<img src="img/check.png" class="btnFinalizar">');
+                var $newBtnDelete = $('<img src="img/cancel.png" class="btnDeleteTask">');
                 $newBtn.text('DONE');
                 $newBtnDelete.text('DELETE');                
                 $newDivBtns.append($newBtn);

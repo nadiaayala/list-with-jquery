@@ -23,17 +23,18 @@ footer{
     width: 24%;
     color: white;
 } 
-.btnFinalizar {
-    width: 60px;
-    height: 20px;
+.btnFinalizar{
+    width: 40px;
+    height: 40px;
+}
+.btnDeleteTask {
+    width: 40px;
+    height: 40px;
 }
 .taskBtns{
     display: flex;
     flex-direction: row;
-    justify-content: center;
-}
-.taskBtns button{
-    margin-left: 5px;
+    justify-content: space-evenly;
 }
 .finished{
     font-style: italic;   
@@ -96,7 +97,7 @@ footer{
     width: inherit;
     display: flex;
     flex-direction: column;
-    max-height: 80vw;
+    max-height: 85vw;
     margin-top: 10px;
 }
 #container input{
@@ -125,7 +126,7 @@ footer{
 #center{
     justify-content: center;    
 }
-@media only screen and (min-width:600px){
+@media only screen and (min-width:800px){
     body{    
         display: flex;
         flex-direction: column;
@@ -134,7 +135,7 @@ footer{
         background-color: rgb(97, 145, 248);    
     }
     h1, .clock{
-        font-size: 25pt;
+        font-size: 30px;
     }
     .inColumn{
         display: flex;
@@ -147,7 +148,15 @@ footer{
     .novoElTarefa{
         width: 100%;
     }  
-    
+    .btnFinalizar{
+        width: 30px;
+        height: 30px;
+
+    } 
+    .btnDeleteTask {
+        width: 30px;
+        height: 30px;
+    }
     #container{
         display: flex;
         flex-direction: column;
@@ -165,9 +174,8 @@ footer{
         width: 100%;
         font-size: 18px;
         height: 35px;
-        margin-top: 0;
-        
-        }
+        margin-top: 0;        
+    }
     #list{
         justify-content: center;
         align-items: center;
